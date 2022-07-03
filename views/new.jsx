@@ -20,6 +20,14 @@ function New(){
                 id="hasGluten"
                 defaultChecked
                 />
+                <label htmlFor="imageUpload">Click Choose File to upload an image</label>
+                <input
+                type='file'
+                name='file'
+                id='file'
+                pattern = '“([^\\s]+(\\.'
+
+                />
                 <br />
                 <input type='submit' />
                 
