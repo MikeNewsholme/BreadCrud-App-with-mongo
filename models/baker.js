@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 //creating short hand for the Schema constructor
 const { Schema } = mongoose
 
+const Bread = require('./bread')
 
 //My Schema
    const bakerSchema = new Schema({
@@ -21,8 +22,14 @@ const { Schema } = mongoose
      bio : String
      
      
-     }
-   )
+     }, { toJSON: { virtuals: true}})
+
+//virtuals
+bakerSchema.virtual('breads',{
+   ref: 'Bread',
+   localField:"_id",
+   foreignField: "baker"
+})
 
    //model and export
 

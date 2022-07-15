@@ -18,14 +18,21 @@ breads.post("/", (req, res) => {
 });
 
 //index
-breads.get("/", (req, res) => {
-  Bread.find().then((foundBreads) => {
-    res.render("index", {
-      breads: foundBreads,
-      title: "Index Page",
-    });
-  });
-});
+// Index:
+breads.get('/', (req, res) => {
+  Baker.find()
+    .then(foundBakers => {
+      Bread.find()
+      .then(foundBreads => {
+          res.render('index', {
+              breads: foundBreads,
+              bakers: foundBakers,
+              title: 'Index Page'
+          })
+      })
+    })
+})
+
 
 //new
 breads.get("/new", (req, res) => {
